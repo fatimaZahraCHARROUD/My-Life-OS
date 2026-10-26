@@ -1,0 +1,46 @@
+{
+  "$schema": "../gen/schemas/desktop-schema.json",
+  "identifier": "default",
+  "description": "Capability for the main window",
+  "windows": ["main"],
+  "permissions": [
+    "core:default",
+    "opener:default",
+    "dialog:default",
+    "dialog:allow-message",
+    "dialog:allow-ask",
+    "core:path:allow-resolve",
+    {
+      "identifier": "fs:allow-exists",
+      "allow": [{ "path": "$DOCUMENT/MyLifeOS-Workspace/**" }]
+    },
+    {
+      "identifier": "fs:allow-read-text-file",
+      "allow": [{ "path": "$DOCUMENT/MyLifeOS-Workspace/**" }]
+    },
+    {
+      "identifier": "fs:allow-write-text-file",
+      "allow": [{ "path": "$DOCUMENT/MyLifeOS-Workspace/**" }]
+    },
+    {
+      "identifier": "fs:allow-mkdir",
+      "allow": [{ "path": "$DOCUMENT/MyLifeOS-Workspace/**" }]
+    },
+    {
+      "identifier": "fs:allow-remove",
+      "allow": [{ "path": "$DOCUMENT/MyLifeOS-Workspace/**" }]
+    },
+    {
+      "identifier": "fs:allow-copy-file",
+      "allow": [{ "path": "$DOCUMENT/MyLifeOS-Workspace/**" }]
+    },
+    {
+      "identifier": "fs:allow-read-file",
+      "allow": [{ "path": "$DOCUMENT/MyLifeOS-Workspace/**" }]
+    },
+    {
+      "identifier": "fs:allow-write-file",
+      "allow": [{ "path": "$DOCUMENT/MyLifeOS-Workspace/**" }]
+    }
+  ]
+}

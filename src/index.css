@@ -1,0 +1,244 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --app-font-size: 15px;
+  }
+  html {
+    font-size: var(--app-font-size);
+  }
+}
+
+@layer base {
+  html, body, #root {
+    height: 100%;
+    margin: 0;
+  }
+
+  body {
+    @apply font-sans antialiased;
+    @apply bg-blush-50 text-burgundy-900;
+    @apply dark:bg-plum-800 dark:text-rose-100;
+    transition: background-color 0.2s ease, color 0.2s ease;
+  }
+
+  ::selection {
+    @apply bg-rose-200 text-burgundy-900;
+  }
+
+  /* Scrollbar — subtle, themed */
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+  ::-webkit-scrollbar-track {
+    @apply bg-transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    @apply bg-rose-200 dark:bg-plum-600 rounded-full;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-rose-300 dark:bg-plum-700;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply px-4 py-2 rounded-lg font-medium;
+    @apply bg-burgundy-600 text-white;
+    @apply hover:bg-burgundy-700 active:bg-burgundy-800;
+    @apply transition-colors duration-150;
+  }
+
+  .btn-ghost {
+    @apply px-3 py-2 rounded-lg font-medium;
+    @apply text-burgundy-700 hover:bg-rose-100;
+    @apply dark:text-rose-200 dark:hover:bg-plum-700;
+    @apply transition-colors duration-150;
+  }
+}
+
+
+/* ---------- BlockNote theming ---------- */
+.bn-container.my-life-os-editor .bn-editor {
+  background: transparent !important;
+  color: inherit;
+  font-family: "Inter", ui-sans-serif, system-ui, sans-serif;
+}
+
+.bn-container.my-life-os-editor .bn-block-content {
+  color: inherit;
+}
+
+/* ---------- Code block (light mode) ---------- */
+.bn-container.my-life-os-editor .bn-block-content[data-content-type="codeBlock"] {
+  background: #2a1820 !important;   /* deep plum */
+  color: #fde8ee !important;        /* pale rose text */
+  border: 1px solid #4a2c3d !important;
+  border-radius: 8px !important;
+}
+
+.bn-container.my-life-os-editor .bn-block-content[data-content-type="codeBlock"] pre,
+.bn-container.my-life-os-editor .bn-block-content[data-content-type="codeBlock"] code {
+  background: transparent !important;
+  color: #fde8ee !important;
+  font-family: "JetBrains Mono", ui-monospace, "SF Mono", Menlo, monospace !important;
+}
+
+/* Inline code inside any paragraph */
+.bn-container.my-life-os-editor .bn-inline-content code {
+  background: #fde8ee;
+  color: #7b2d3f;
+  border-radius: 4px;
+  padding: 1px 6px;
+}
+
+/* ---------- Code block (dark mode) ---------- */
+.dark .bn-container.my-life-os-editor .bn-block-content[data-content-type="codeBlock"] {
+  background: #1a0e14 !important;   /* darker plum */
+  color: #f5a8be !important;        /* rose */
+  border: 1px solid #3a2230 !important;
+}
+
+.dark .bn-container.my-life-os-editor .bn-block-content[data-content-type="codeBlock"] pre,
+.dark .bn-container.my-life-os-editor .bn-block-content[data-content-type="codeBlock"] code {
+  color: #f5a8be !important;
+}
+
+.dark .bn-container.my-life-os-editor .bn-inline-content code {
+  background: #3a2230;
+  color: #f5a8be;
+}
+
+/* ---------- Tables ---------- */
+.bn-container.my-life-os-editor .bn-block-content[data-content-type="table"] .bn-table,
+.bn-container.my-life-os-editor table {
+  border-collapse: collapse !important;
+  background: #fff5f8 !important;   /* pale blush */
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.bn-container.my-life-os-editor table th,
+.bn-container.my-life-os-editor table td {
+  border: 1px solid #f5d2db !important;
+  padding: 8px 12px !important;
+  background: #fff9fa !important;
+  color: #4a1b2c !important;
+}
+
+.bn-container.my-life-os-editor table th {
+  background: #fde8ee !important;
+  color: #7b2d3f !important;
+  font-weight: 600 !important;
+}
+
+.bn-container.my-life-os-editor table tr:nth-child(even) td {
+  background: #fdf2f5 !important;
+}
+
+/* Cell "selected" state */
+.bn-container.my-life-os-editor table td[data-selected="true"],
+.bn-container.my-life-os-editor table th[data-selected="true"] {
+  background: #f5a8be !important;
+  color: #2f101d !important;
+}
+
+.dark .bn-container.my-life-os-editor table {
+  background: #2a1820 !important;
+}
+
+.dark .bn-container.my-life-os-editor table th,
+.dark .bn-container.my-life-os-editor table td {
+  border: 1px solid #4a2c3d !important;
+  background: #2a1820 !important;
+  color: #fde8ee !important;
+}
+
+.dark .bn-container.my-life-os-editor table th {
+  background: #3a2230 !important;
+  color: #f5a8be !important;
+}
+
+.dark .bn-container.my-life-os-editor table tr:nth-child(even) td {
+  background: #331a26 !important;
+}
+
+/* ---------- Side menu + slash menu ---------- */
+.bn-container.my-life-os-editor .bn-side-menu button {
+  color: #a84465;
+}
+.dark .bn-container.my-life-os-editor .bn-side-menu button {
+  color: #f5a8be;
+}
+
+.bn-container.my-life-os-editor .bn-suggestion-menu,
+.bn-container.my-life-os-editor .bn-menu {
+  background: #fff9fa !important;
+  border: 1px solid #f5d2db !important;
+  box-shadow: 0 8px 24px rgba(123, 45, 63, 0.12) !important;
+  border-radius: 10px !important;
+}
+
+.dark .bn-container.my-life-os-editor .bn-suggestion-menu,
+.dark .bn-container.my-life-os-editor .bn-menu {
+  background: #2a1820 !important;
+  border: 1px solid #3a2230 !important;
+}
+
+.bn-container.my-life-os-editor .bn-suggestion-menu-item[aria-selected="true"],
+.bn-container.my-life-os-editor .bn-menu-item[aria-selected="true"],
+.bn-container.my-life-os-editor .bn-suggestion-menu-item:hover {
+  background: #fde8ee !important;
+  color: #7b2d3f !important;
+}
+
+.dark .bn-container.my-life-os-editor .bn-suggestion-menu-item[aria-selected="true"],
+.dark .bn-container.my-life-os-editor .bn-menu-item[aria-selected="true"],
+.dark .bn-container.my-life-os-editor .bn-suggestion-menu-item:hover {
+  background: #3a2230 !important;
+  color: #f5a8be !important;
+}
+
+
+/* ---------- App-wide font scaling ---------- */
+:root {
+  --app-font-size: 15px;
+  --app-scale: 1;
+}
+
+html {
+  font-size: var(--app-font-size);
+}
+
+/* Scale the editor's images and blocks proportionally */
+.bn-container.my-life-os-editor .bn-editor {
+  font-size: 1rem; /* inherits from html */
+}
+
+/* Images inside the editor */
+.bn-container.my-life-os-editor .bn-block-content[data-content-type="image"] img {
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+}
+
+/* Explicit zoom-based scaling for the whole page content */
+.page-content-wrapper {
+  zoom: var(--app-scale);
+  width: 100%;
+}
+/* Force the text inside the callout to be the soft colors */
+.callout-inner-text .bn-block-content,
+.callout-inner-text .bn-block-content p,
+.callout-inner-text .bn-inline-content {
+  color: inherit !important; /* Forces it to use the textColor we set */
+}
+
+/* Remove any dark mode background BlockNote forces on paragraphs */
+.callout-inner-text .bn-block-outer,
+.callout-inner-text .bn-block {
+  background-color: transparent !important;
+}
